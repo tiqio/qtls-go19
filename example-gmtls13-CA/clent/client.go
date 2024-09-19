@@ -7,6 +7,7 @@ import (
 	"flag"
 	"fmt"
 	"github.com/emmansun/gmsm/smx509"
+	"github.com/tiqio/qtls-go19"
 	"io"
 	"log"
 	"os"

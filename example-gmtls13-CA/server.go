@@ -4,6 +4,7 @@ import (
 	"crypto/tls"
 	"flag"
 	"fmt"
+	"github.com/tiqio/qtls-go19"
 	"io"
 	"log"
 	"net"
