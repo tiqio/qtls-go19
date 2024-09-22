@@ -356,12 +356,14 @@ var (
 // disabled by default TLS 1.3 cipher suites. The same AES vs ChaCha20 logic as
 // cipherSuitesPreferenceOrder applies.
 var defaultCipherSuitesTLS13 = []uint16{
+	TLS_SM4_GCM_SM3,
 	TLS_AES_128_GCM_SHA256,
 	TLS_AES_256_GCM_SHA384,
 	TLS_CHACHA20_POLY1305_SHA256,
 }
 
 var defaultCipherSuitesTLS13NoAES = []uint16{
+	TLS_SM4_GCM_SM3,
 	TLS_CHACHA20_POLY1305_SHA256,
 	TLS_AES_128_GCM_SHA256,
 	TLS_AES_256_GCM_SHA384,

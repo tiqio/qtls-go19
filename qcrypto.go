@@ -6,7 +6,6 @@
 package smtls
 
 import (
-	"crypto"
 	"github.com/emmansun/gmsm/sm3"
 	"hash"
 	"io"
@@ -134,8 +133,13 @@ func (h Hash) New() hash.Hash {
 	if h == SM3 {
 		return sm3.New()
 	}
-	var h1 crypto.Hash = crypto.Hash(uint(h))
-	return h1.New()
+	if h > 0 && h < maxHash {
+		f := hashes[h]
+		if f != nil {
+			return f()
+		}
+	}
+	panic("crypto: requested hash function #" + strconv.Itoa(int(h)) + " is unavailable")
 }
 
 // Available reports whether the given hash function is linked into the binary.
